@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Delete Application - Job Application Tracker{% endblock %}
+
+{% block content %}
+  <h2 class="fw-bold mb-4">Delete Job Application</h2>
+  <div class="alert alert-warning">
+    Are you sure you want to delete the application for
+    <strong>{{ application.position }}</strong> at
+    <strong>{{ application.company_name }}</strong>? This action cannot be undone.
+  </div>
+  <form method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Yes, Delete</button>
+    <a href="{% url 'job_list' %}" class="btn btn-outline-secondary">Cancel</a>
+  </form>
+{% endblock %}
